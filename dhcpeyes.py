@@ -1,4 +1,5 @@
 #!/usr/bin/env python2.7
+#  Coded by vincenzogianfelice <developer.vincenzog@gmail.com> with <3
 import base64
 import sys
 import time
