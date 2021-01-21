@@ -8,7 +8,7 @@ Intercept requests passively of DHCP from own network!
 pip2 install -r requirements.txt
 ```
 # Usage
-![Image of Yaktocat](https://github.com/vincenzogianfelice/DHCPEyes/img/usage.png)
+![demo usage](https://raw.githubusercontent.com/vincenzogianfelice/DHCPEyes/master/img/usage.png)
 
 ```
 #: ./dhcpeyes.py -i wlan0 -t DHCPR  # Intercept only REQUEST dhcp
