@@ -1,4 +1,4 @@
-# DHCPEyes
+# DHCPEyes :eyes:
 Intercept requests passively of DHCP from own network!
 
 # Installation
@@ -10,8 +10,9 @@ pip2 install -r requirements.txt
 # Usage
 ![demo usage](https://raw.githubusercontent.com/vincenzogianfelice/DHCPEyes/master/img/usage.png)
 
+###### Example:
 ```
-#: ./dhcpeyes.py -i wlan0 -t DHCPR  # Intercept only REQUEST dhcp
+# ./dhcpeyes.py -i wlan0 -t DHCPR  # Intercept only REQUEST dhcp
 ```
 
 # Donazioni
