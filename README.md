@@ -14,7 +14,8 @@ pip2 install -r requirements.txt
 ```
 
 # Usage
-``` ____  __  ____________  ______
+```
+    ____  __  ____________  ______
    / __ \/ / / / ____/ __ \/ ____/_  _____  _____
   / / / / /_/ / /   / /_/ / __/ / / / / _ \/ ___/
  / /_/ / __  / /___/ ____/ /___/ /_/ /  __(__  )
@@ -29,7 +30,7 @@ Optional:
      -o <arg>  File Output Save
      -t <arg>  REQUEST types: DHCPR (request),  DHCPD (discover)
 ```
-######Examples
+###### Examples
 ```
 ./dhcpeyes.py -i wlan0 -t DHCPR  # Intercept only DHCPREQUEST
 ./dhcpeyes.py -i wlan0  # Intercept all

@@ -40,7 +40,7 @@ def logo():
 
 def help():
     print('Usage: {} -i <interface>'.format(sys.argv[0]))
-    print
+    print('')
     print('Optional:')
     print('     -o <arg>  File Output Save')
     print('     -t <arg>  REQUEST types: DHCPR (request),  DHCPD (discover)')
