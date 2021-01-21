@@ -4,6 +4,7 @@
 <img 
 src="https://raw.githubusercontent.com/vincenzogianfelice/DHCPEyes/master/media/demo.png"
 alt="Demo Usage"
+width=100%
 align="middle"
 />
 
