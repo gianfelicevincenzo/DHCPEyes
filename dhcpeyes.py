@@ -142,7 +142,7 @@ if __name__ == '__main__':
             interface=val[index_op]
 
     ## Check root permissions
-    if (os.name != 'win32'):
+    if (os.name == 'posix'):
         if (os.getuid() != 0):
             print('Please run as root')
             sys.exit(1)
