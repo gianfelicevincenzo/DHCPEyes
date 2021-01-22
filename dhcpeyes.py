@@ -7,7 +7,7 @@ import sys
 import time
 import os
 from termcolor import colored
-from scapy.all import Ether,IP,DHCP,sniff
+from scapy.all import Ether,DHCP,sniff
 
 ## DHCP Message Type - RFC2132/Page-4 (https://tools.ietf.org/html/rfc2132#page-4) ##
 ## Per il momento, verranno utilizzati solo DHCPREQUEST e DHCPDISCOVER.
@@ -44,6 +44,9 @@ def help():
     print('Optional:')
     print('     -o <arg>  File Output Save')
     print('     -t <arg>  REQUEST types: DHCPR (request),  DHCPD (discover)')
+
+    if (os.name == 'nt'):
+        print('Digit "netsh interface show interface" for show the name of interface in Windows')
 
 def dhcp_options_search(pkts):
     data=[pkts.getlayer(DHCP).options[0][1]]
@@ -147,4 +150,6 @@ if __name__ == '__main__':
             print('Please run as root')
             sys.exit(1)
 
+    print('DHCP listener on "{}" interface...'.format(interface))
+    print('')
     sniff(iface=interface, prn=parser_packet, store=False, filter=('udp port 67 and port 68'))
