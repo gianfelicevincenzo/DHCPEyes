@@ -46,7 +46,8 @@ def help():
     print('     -t <arg>  REQUEST types: DHCPR (request),  DHCPD (discover)')
 
     if (os.name == 'nt'):
-        print('Digit "netsh interface show interface" for show the name of interface in Windows')
+        print('')
+        print('In Windows, digit "netsh interface show interface" for show the name of interface')
 
 def dhcp_options_search(pkts):
     data=[pkts.getlayer(DHCP).options[0][1]]
