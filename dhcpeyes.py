@@ -1,6 +1,6 @@
 #!/usr/bin/env python2.7
 #  Coded by vincenzogianfelice <developer.vincenzog@gmail.com> with <3
-VERSION='v1.0'
+VERSION='v1.1'
 
 import base64
 import sys
@@ -8,19 +8,22 @@ import time
 import os
 from termcolor import colored
 from scapy.all import Ether,DHCP,sniff
+if (os.name == 'nt'):
+    import colorama
+    colorama.init()
 
 ## DHCP Message Type - RFC2132/Page-4 (https://tools.ietf.org/html/rfc2132#page-4) ##
 ## Per il momento, verranno utilizzati solo DHCPREQUEST e DHCPDISCOVER.
 ## Presto verra' aggiunta la possibilita' di intercettare il DHCPOFFER
 ## Stay Tuned! ;)
-DHCPDISCOVER=1
-DHCPOFFER=2
-DHCPREQUEST=3
-DHCPDECLINE=4
-DHCPACK=5
-DHCPNAK=6
-DHCPRELEASE=7
-DHCPINFORM=8
+DHCPDISCOVER=1  #Used
+DHCPOFFER=2     #No
+DHCPREQUEST=3   #Used
+DHCPDECLINE=4   #No
+DHCPACK=5       #No
+DHCPNAK=6       #No
+DHCPRELEASE=7   #No
+DHCPINFORM=8    #No
 
 ## DHCPOptions of Scapy
 ## (https://github.com/secdev/scapy/blob/master/scapy/layers/dhcp.py)
@@ -35,7 +38,7 @@ def logo():
     LOGO='ICAgIF9fX18gIF9fICBfX19fX19fX19fX18gIF9fX19fXyAgICAgICAgICAgICAgIAogICAvIF9fIFwvIC8gLyAvIF9fX18vIF9fIFwvIF9fX18vXyAgX19fX18gIF9fX19fCiAgLyAvIC8gLyAvXy8gLyAvICAgLyAvXy8gLyBfXy8gLyAvIC8gLyBfIFwvIF9fXy8KIC8gL18vIC8gX18gIC8gL19fXy8gX19fXy8gL19fXy8gL18vIC8gIF9fKF9fICApIAovX19fX18vXy8gL18vXF9fX18vXy8gICAvX19fX18vXF9fLCAvXF9fXy9fX19fLyAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIC9fX19fLyAgICAgICAgICAgICAK'
 
     print(base64.b64decode(LOGO).decode('ascii'))
-    print('\t* DHCP Passive Listener! ('+VERSION+') *')
+    print('\t* Passive DHCP Listener! ('+VERSION+') *')
     print('')
 
 def help():
@@ -47,7 +50,8 @@ def help():
 
     if (os.name == 'nt'):
         print('')
-        print('In Windows, digit "netsh interface show interface" for show the name of interface')
+        print('')
+        print('(PS). In Windows, digit "netsh interface show interface" for show the names of interfaces')
 
 def dhcp_options_search(pkts):
     data=[pkts.getlayer(DHCP).options[0][1]]
@@ -151,6 +155,6 @@ if __name__ == '__main__':
             print('Please run as root')
             sys.exit(1)
 
-    print('DHCP listener on "{}" interface...'.format(interface))
+    print('* Eyes on "{}" interface...'.format(interface))
     print('')
     sniff(iface=interface, prn=parser_packet, store=False, filter=('udp port 67 and port 68'))
