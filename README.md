@@ -26,7 +26,22 @@ and copy the 4 column (```Nome interfaccia```/```Name interface```)
 
 # Usage
 ```
+    ____  __  ____________  ______
+   / __ \/ / / / ____/ __ \/ ____/_  _____  _____
+  / / / / /_/ / /   / /_/ / __/ / / / / _ \/ ___/
+ / /_/ / __  / /___/ ____/ /___/ /_/ /  __(__  )
+/_____/_/ /_/\____/_/   /_____/\__, /\___/____/
+                              /____/
+
+        * Passive DHCP Listener! (v1.1) *
+
+Usage: ./dhcpeyes.py -i <interface>
+
+Optional:
+     -o <arg>  File Output Save
+     -t <arg>  REQUEST types: DHCPR (request),  DHCPD (discover)
 ```
+
 #### Examples
 ```
 ./dhcpeyes.py -i wlan0 -t DHCPR  # Intercept only DHCPREQUEST
