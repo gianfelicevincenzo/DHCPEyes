@@ -13,6 +13,17 @@ alt="DemoImage"
 pip2 install -r requirements.txt
 ```
 
+#### Windows
+- First, install [WinPcap](https://www.winpcap.org/install/)
+- After installed winpcap, run file exe after [downloaded](https://github.com/vincenzogianfelice/DHCPEyes/releases)
+- For findings interfaces on Windows, digit in prompt:
+
+```
+netsh interface show interface
+```
+
+and copy the 4 column (```Nome interfaccia```/```Name interface```)
+
 # Usage
 ```
     ____  __  ____________  ______
@@ -34,6 +45,10 @@ Optional:
 ```
 ./dhcpeyes.py -i wlan0 -t DHCPR  # Intercept only DHCPREQUEST
 ./dhcpeyes.py -i wlan0  # Intercept all
+```
+**for windows**
+```
+./dhcpeyes.py -i "Connessione alla rete locale (LAN)" -t DHCPR  # Using "Connessione alla rete locale (LAN)" provided from output of command netsh
 ```
 
 # Donazioni
