@@ -6,23 +6,27 @@ src="https://raw.githubusercontent.com/vincenzogianfelice/DHCPEyes/master/media/
 alt="DemoImage"
 />
 
-# Installation
+# Authors
+- **Vincenzo Gianfelice**
+- **Contact**: _developer.vincenzog@gmail.com_
+- **BTC** (**donation**): *3EwV4zt9r5o4aTHyqjcM6CfqSVirSEmN6y*
+
+# Prerequisites
 Require **python2.7** (also **python3.5**)
 
-```
-pip2 install -r requirements.txt
-```
+- scapy >= 2.4.4
+- termcolor
+- colorama (if use on **windows**)
 
 ###### Windows
 - First, install [WinPcap](https://www.winpcap.org/install/)
 - After installed winpcap, run file exe after [downloaded](https://github.com/vincenzogianfelice/DHCPEyes/releases)
-- For searching interfaces on Windows, digit in prompt:
+- For searching interfaces on Windows, digit in prompt ```netsh interface show interfaces```, and copy the 4 column (```Nome interfaccia```/```Name interface```)
 
+# Installation
 ```
-netsh interface show interface
+pip2 install -r requirements.txt
 ```
-
-and copy the 4 column (```Nome interfaccia```/```Name interface```)
 
 # Usage
 ```
@@ -33,29 +37,27 @@ and copy the 4 column (```Nome interfaccia```/```Name interface```)
 /_____/_/ /_/\____/_/   /_____/\__, /\___/____/
                               /____/
 
-        * Passive DHCP Listener! (v1.1) *
+        * Passive DHCP Listener! (v1.2) *
 
 Usage: ./dhcpeyes.py -i <interface>
 
+     -i        Interface for listening
 Optional:
      -o <arg>  File Output Save
-     -t <arg>  REQUEST types: DHCPR (request),  DHCPD (discover)
+     -t <arg>  Options types: DHCPD  (discover)
+                              DHCPR  (request)
+                              DHCPN  (nak)
+                              DHCPI  (inform)
+               Default print all options
 ```
 
 #### Examples
 ```
-./dhcpeyes.py -i wlan0 -t DHCPR  # Intercept only DHCPREQUEST
-./dhcpeyes.py -i wlan0  # Intercept all
+./dhcpeyes.py -i wlan0 -t DHCPR              # Intercept only DHCPREQUEST on wlan0
+./dhcpeyes.py -t DHCPI -i wlan0 -t DHCPD     # Intercept DHCPINFORM and DHCPDISCOVER
 ```
+
 ###### Windows
 ```
 ./dhcpeyes.py -i "Connessione alla rete locale (LAN)" -t DHCPR  # Using "Connessione alla rete locale (LAN)" provided from output of command netsh
 ```
-
-# Donazioni
-
-**BTC:** *3EwV4zt9r5o4aTHyqjcM6CfqSVirSEmN6y*
-
-# Contatti
-
-**Email:** *developer.vincenzog@gmail.com*
