@@ -1,7 +1,7 @@
 # DHCPEyes :eyes:
 **Intercept requests passively of DHCP from own network!**
 
-<img 
+<img
 src="https://raw.githubusercontent.com/vincenzogianfelice/DHCPEyes/master/media/demo.png"
 alt="DemoImage"
 />
@@ -9,14 +9,14 @@ alt="DemoImage"
 # Authors
 - **Vincenzo Gianfelice**
 - **Contact**: _developer.vincenzog@gmail.com_
-- **BTC** (**donation**): *3EwV4zt9r5o4aTHyqjcM6CfqSVirSEmN6y*
+- **BTC**(donation): *3EwV4zt9r5o4aTHyqjcM6CfqSVirSEmN6y*
 
 # Prerequisites
 Require **python2.7** (also **python3.5**)
 
 - scapy >= 2.4.4
 - termcolor
-- colorama (if use on **windows**)
+- colorama (if you use **windows**)
 
 ###### Windows
 - First, install [WinPcap](https://www.winpcap.org/install/)
@@ -55,6 +55,7 @@ Optional:
 ```
 ./dhcpeyes.py -i wlan0 -t DHCPR              # Intercept only DHCPREQUEST on wlan0
 ./dhcpeyes.py -t DHCPI -i wlan0 -t DHCPD     # Intercept DHCPINFORM and DHCPDISCOVER
+./dhcpeyes.py -i wlan0                       # Intercept all
 ```
 
 ###### Windows
